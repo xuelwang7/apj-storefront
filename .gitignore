@@ -1,5 +1,4 @@
 # Operating System Files
-
 *.DS_Store
 Thumbs.db
 *.sw?
@@ -9,24 +8,43 @@ Thumbs.db
 *.sublime-*
 
 # Build Artifacts
-
 .gradle/
 build/
 target/
 bin/
 dependency-reduced-pom.xml
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
 # Eclipse Project Files
-
+.apt_generated
 .classpath
+.factorypath
 .project
 .settings/
+.settings
+.springBeans
+.sts4-cache
 
 # IntelliJ IDEA Files
-
+.idea
 *.iml
 *.ipr
 *.iws
-*.idea
 
+# NetBeans Files
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code Files
+.vscode/
+
+# Documentation
 README.html
+HELP.md
