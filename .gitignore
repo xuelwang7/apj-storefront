@@ -1,33 +1,50 @@
-HELP.md
+# Operating System Files
+*.DS_Store
+Thumbs.db
+*.sw?
+.#*
+*#
+*~
+*.sublime-*
+
+# Build Artifacts
+.gradle/
+build/
 target/
+bin/
+dependency-reduced-pom.xml
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
-### STS ###
+# Eclipse Project Files
 .apt_generated
 .classpath
 .factorypath
 .project
+.settings/
 .settings
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
+# IntelliJ IDEA Files
 .idea
-*.iws
 *.iml
 *.ipr
+*.iws
 
-### NetBeans ###
+# NetBeans Files
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
+# VS Code Files
 .vscode/
+
+# Documentation
+README.html
+HELP.md
