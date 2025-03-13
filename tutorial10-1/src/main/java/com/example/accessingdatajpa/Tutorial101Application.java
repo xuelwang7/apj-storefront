@@ -1,6 +1,5 @@
 package com.example.accessingdatajpa;
 
-import com.example.accessingdatajpa.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -8,18 +7,24 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {
+        "com.example.accessingdatarest",
+        "com.example.accessingdatajpa"
+})
 public class Tutorial101Application {
 
+    // 添加这一行来定义日志器
     private static final Logger log = LoggerFactory.getLogger(Tutorial101Application.class);
 
     public static void main(String[] args) {
         SpringApplication.run(Tutorial101Application.class, args);
     }
-
     @Bean
     public CommandLineRunner demo(CustomerRepository repository) {
         return (args) -> {
+            // 添加debug日志语句记录logger类名
+            log.debug("Logger class: {}", log.getClass().getName());
+
             // save a few customers
             repository.save(new Customer("Jack", "Bauer"));
             repository.save(new Customer("Chloe", "O'Brian"));
@@ -35,6 +40,14 @@ public class Tutorial101Application {
             });
             log.info("");
 
+            // fetch an individual customer by ID
+//            Customer customer = repository.findById(1L).orElse(null);
+//            log.info("Customer found with findById(1L):");
+//            log.info("--------------------------------");
+//            if (customer != null) {
+//                log.info(customer.toString());
+//            }
+//            log.info("");
             // fetch an individual customer by ID
             Customer customer = repository.findById(1L);
             log.info("Customer found with findById(1L):");
