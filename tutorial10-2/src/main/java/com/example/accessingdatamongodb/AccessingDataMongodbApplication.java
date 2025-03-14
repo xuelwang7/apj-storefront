@@ -32,7 +32,7 @@ public class AccessingDataMongodbApplication implements CommandLineRunner {
 		}
 		System.out.println();
 
-		// fetch an individual customer
+		// fetch an individual
 		System.out.println("Customer found with findByFirstName('Alice'):");
 		System.out.println("--------------------------------");
 		System.out.println(repository.findByFirstName("Alice"));
