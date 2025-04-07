@@ -16,6 +16,11 @@ public class CartService {
     @Autowired
     private CartRepository cartRepository;
 
+    public void setCartRepository(CartRepository cartRepository) {
+        this.cartRepository = cartRepository;
+    }
+
+
     public Cart addItemToCart(String cartId, Item item) {
         // Find the cart
         Cart cart = cartRepository.findById(cartId)
