@@ -51,10 +51,11 @@ public class TradingCardService {
                         String[] parts = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
 
                         if (parts.length >= 6) {
-                            String name = parts[0].trim().replace("\"", "");
-                            String specialty = parts[1].trim().replace("\"", "");
-                            String contribution = parts[2].trim().replace("\"", "");
-                            String priceStr = parts[3].trim().replace("$", "").replace("\"", "").replace(",", "");
+                            Long csvId = Long.parseLong(parts[0]);
+                            String name = parts[1].trim().replace("\"", "");
+                            String specialty = parts[2].trim().replace("\"", "");
+                            String contribution = parts[3].trim().replace("\"", "");
+                            String priceStr = parts[4].trim().replace("$", "").replace("\"", "").replace(",", "");
                             String imageUrl = parts[5].trim().replace("\"", "");
 
                             BigDecimal price;
@@ -65,7 +66,14 @@ public class TradingCardService {
                                 price = new BigDecimal("9.99");
                             }
 
-                            TradingCard card = new TradingCard(id++, name, specialty, contribution, price, imageUrl);
+                            TradingCard card = new TradingCard(
+                                    csvId,
+                                    name,
+                                    specialty,
+                                    contribution,
+                                    new BigDecimal(priceStr),
+                                    imageUrl
+                            );
                             tradingCards.add(card);
                             System.out.println("✅ Loaded card: " + card);
                         } else {

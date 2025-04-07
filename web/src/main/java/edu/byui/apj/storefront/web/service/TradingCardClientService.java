@@ -21,7 +21,7 @@ public class TradingCardClientService {
     private final WebClient webClient;
     private static final Logger logger = LoggerFactory.getLogger(TradingCardClientService.class);
 
-    public TradingCardClientService(@Value("${api.base.url:http://localhost:8081/api/cards}") String apiBaseUrl) {
+    public TradingCardClientService(@Value("${tradingcard.service.url}/api/cards}") String apiBaseUrl) {
         logger.info("🔌 Initializing Trading Card Client Service with API URL: {}", apiBaseUrl);
 
         this.webClient = WebClient.builder()
@@ -34,7 +34,7 @@ public class TradingCardClientService {
 
     public List<TradingCard> getAllCardsPaginated(int page, int size) {
         try {
-            // 1) 先拿到原始 JSON 字符串
+
             String rawJson = webClient.get()
                     .uri(uriBuilder -> uriBuilder
                             .queryParam("page", page)

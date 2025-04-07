@@ -1,10 +1,10 @@
-package apjstorefront.apimongo;
+package edu.byui.apj.storefront.model;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiMongoApplicationTests {
+class ModelApplicationTests {
 
 	@Test
 	void contextLoads() {
